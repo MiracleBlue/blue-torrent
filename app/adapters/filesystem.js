@@ -9,17 +9,31 @@ var inject   = Ember.inject;
 var RSVP     = Ember.RSVP;
 
 export default DS.Adapter.extend({
-  nw: inject.service(),
+  nw: inject.service("nw"),
 
   fileUtil: computed.alias('nw.fileUtil'),
 
-  find: function(store, type, filename) {
-    var promise = this.get('fileUtil').readFile(filename);
+  async findAll(store, type, sinceToken) {
+    console.log("findAll", {store, type});
+    const typeKey = type.modelName;
+    const files = await this.get("fileUtil").getAllFiles(typeKey);
+    console.log("getAllFiles", files);
+
+    return files;
+  },
+
+  findRecord: function(store, type, id) {
+    const modelType = type.modelName,
+          fileName = `${id}.json`,
+          filePath = `../datastore/${modelType}/${fileName}`;
+
+    console.log(filePath);
+
+    var promise = this.get('fileUtil').readFile(filePath);
 
     return promise.then(function(data) {
       return {
-        id: filename,
-        filename: filename,
+        id: id,
         body: data
       };
     });

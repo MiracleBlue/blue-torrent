@@ -18,6 +18,13 @@
   },
   "author": "",
   "license": "MIT",
+  "dependencies": {
+    "fs-json": "^0.1.2",
+    "glob": "^5.0.14",
+    "glob-promise": "^1.0.3",
+    "rsvp": "^3.0.17",
+    "wrench": "^1.5.8"
+  },
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.2",
     "ember-cli": "1.13.1",
@@ -41,6 +48,7 @@
     "nw": "0.12.2"
   },
   "main": "dist/index.html",
+  "node-main": "dist/index.js",
   "window": {
     "width": 960,
     "height": 600
