@@ -3,6 +3,14 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
+    babel: {
+      stage: 0,
+      // todo: replace with regenerator when we can import the polyfill
+      optional: ["asyncToGenerator"]
+    },
+    fingerprint: {
+      exclude: ['index.js', 'lib']
+    }
     // Add options here
   });
 
