@@ -52,5 +52,8 @@
   "window": {
     "width": 960,
     "height": 600
+  },
+  "webkit": {
+    "plugin": true
   }
 }

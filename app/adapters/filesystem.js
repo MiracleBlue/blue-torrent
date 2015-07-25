@@ -8,34 +8,28 @@ var computed = Ember.computed;
 var inject   = Ember.inject;
 var RSVP     = Ember.RSVP;
 
+// todo: clean this whole thing up to make more pretty
 export default DS.Adapter.extend({
   nw: inject.service("nw"),
 
   fileUtil: computed.alias('nw.fileUtil'),
 
   async findAll(store, type, sinceToken) {
-    console.log("findAll", {store, type});
-    const typeKey = type.modelName;
-    const files = await this.get("fileUtil").getAllFiles(typeKey);
-    console.log("getAllFiles", files);
+    const typeKey = type.modelName,
+          files = await this.get("fileUtil").getAllFiles(typeKey);
 
     return files;
   },
 
   findRecord: function(store, type, id) {
-    const modelType = type.modelName,
+    const typeKey = type.modelName,
           fileName = `${id}.json`,
-          filePath = `../datastore/${modelType}/${fileName}`;
-
-    console.log(filePath);
+          filePath = `../datastore/${typeKey}/${fileName}`;
 
     var promise = this.get('fileUtil').readFile(filePath);
 
     return promise.then(function(data) {
-      return {
-        id: id,
-        body: data
-      };
+      return data[typeKey];
     });
   },
 
@@ -60,4 +54,6 @@ export default DS.Adapter.extend({
 
     return this.get('fileUtil').writeFile(filename, snapshot.attr('body'));
   }
+
+  // todo: make a delete record that is safe-ish
 });

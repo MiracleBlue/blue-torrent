@@ -15,7 +15,7 @@ var datastorePath = path.resolve(__dirname, "../datastore/");
 exports.readFile = function(filename) {
   var filePath = path.resolve(__dirname, filename);
   console.log("filePath", filePath);
-  return readFile(filePath, { encoding: 'utf8' });
+  return loadJson(filePath);
 };
 
 exports.getAllFiles = function(typeName) {
