@@ -1,0 +1,14 @@
+<table>
+  <thead>
+    <tr>
+      {{#each columns as |column|}}
+        <th>{{column.label}}</th>
+      {{/each}}
+    </tr>
+  </thead>
+  <tbody>
+    {{#each content as |row|}}
+      {{yield row}}
+    {{/each}}
+  </tbody>
+</table>

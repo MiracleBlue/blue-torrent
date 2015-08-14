@@ -5,7 +5,6 @@ module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     babel: {
       stage: 0,
-      // todo: replace with regenerator when we can import the polyfill
       optional: ["asyncToGenerator"]
     },
     fingerprint: {
@@ -27,5 +26,8 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
+  /*app.import({
+    development: 'bower_components/ember/ember.debug.js'
+  });*/
   return app.toTree();
 };

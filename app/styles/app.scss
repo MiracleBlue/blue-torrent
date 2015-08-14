@@ -1,1 +1,19 @@
 @import "ember-foundation";
+
+html, body {
+  height: auto;
+}
+
+/* Coolors Exported Palette - coolors.co/58a0ff-7d1935-f5f5ee-333333-cbedb8 */
+
+$primary-color: #58a0ff; //rgba(88, 160, 255, 100)
+$accent-color: #7d1935; //rgba(125, 25, 53, 100)
+$color-white: #f5f5ee; //rgba(245, 245, 238, 100)
+$color-grey: #333333; //rgba(51, 51, 51, 100)
+$secondary-color: #cbedb8; //rgba(203, 237, 184, 100)
+
+//$primary-color: #58A0FF;
+//$accent-color: #ffb540;
+
+// Components
+@import "components";

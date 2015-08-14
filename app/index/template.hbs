@@ -1,6 +1,18 @@
-{{outlet}}
-<ul>
-  {{#each model as |torrent|}}
-    <li>Hello torrent {{torrent.id}}</li>
-  {{/each}}
-</ul>
+<div class="torrents__list">
+  {{#blue-table model as |torrent|}}
+    {{#blue-table/row torrent}}
+      {{#blue-table/column key="name" label="Name" as |data|}}
+        {{data}}
+      {{/blue-table/column}}
+      {{#blue-table/column key="status" label="Status" as |data|}}
+        {{data}}
+      {{/blue-table/column}}
+      {{#blue-table/column key="size" label="Size" as |data|}}
+        {{data}}
+      {{/blue-table/column}}
+      {{#blue-table/column key="downloaded" label="Downloaded" as |data|}}
+        {{data}}
+      {{/blue-table/column}}
+    {{/blue-table/row}}
+  {{/blue-table}}
+</div>

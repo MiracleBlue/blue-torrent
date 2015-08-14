@@ -1,6 +1,18 @@
 {
   "torrent": {
     "id": 1,
-    "name": "hello"
+    "name": "hello",
+    "torrentFilePath": "/some/path/to/stuff.torrent",
+    "downloadPath": "/some/download/location",
+    "isActive": true,
+    "status": "DOWNLOADING",
+    "isErrored": false,
+    "error": "",
+    "size": 192542,
+    "downloaded": 34516,
+    "uploaded": 1345,
+    "seeds": 5,
+    "peers": 1,
+    "ratio": 0.5
   }
 }
