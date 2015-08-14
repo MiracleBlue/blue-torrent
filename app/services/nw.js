@@ -7,9 +7,15 @@ export default Ember.Service.extend(Ember.Evented, {
   fileUtil: get(window, 'process.mainModule.exports.fileUtil'),
   gui: nwGui,
   nwWindow: Ember.computed("gui.Window", function() {
-    return this.get("gui").Window.get();
+    const guiWindow = this.get("gui").Window;
+    if (guiWindow) {
+      return guiWindow.get();
+    }
   }),
   _showDevTools: function() {
-    this.get("nwWindow").showDevTools();
+    const nwWindow = this.get("nwWindow");
+    if (nwWindow) {
+      nwWindow.showDevTools();
+    }
   }.on("init")
 });

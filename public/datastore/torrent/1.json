@@ -1,6 +1,7 @@
 {
   "torrent": {
     "id": 1,
-    "name": "hello"
+    "name": "Ubuntu_14.04.3_server_amd64.torrent",
+    "torrentFilePath": "/Users/Rose/Development/blue-torrent/public/test-torrents/Ubuntu_14.04.3_server_amd64.torrent"
   }
 }

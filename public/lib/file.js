@@ -11,6 +11,16 @@ var writeFile = denodeify(fs.writeFile);
 var loadJson = denodeify(fsJson.load);
 
 var datastorePath = path.resolve(__dirname, "../datastore/");
+var testTorrentPath = path.resolve(__dirname, "../test-torrents/Ubuntu_14.04.3_server_amd64.torrent");
+
+// todo: remove this call as this is just for testing!
+exports.readTorrentFile = function(torrentPath) {
+  if (!torrentPath) return console.error("No torrent path was provided");
+  console.log("readTorrentFile", torrentPath);
+  return readFile(torrentPath);
+};
+
+exports.getDownloadPath = path.resolve(__dirname, "../test-downloads/");
 
 exports.readFile = function(filename) {
   var filePath = path.resolve(__dirname, filename);
