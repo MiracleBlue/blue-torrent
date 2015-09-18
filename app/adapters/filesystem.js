@@ -47,12 +47,11 @@ export default DS.Adapter.extend({
   },
 
   saveRecord: function(snapshot) {
-    var filename = snapshot.attr('filename');
-    if (!filename) {
-      return RSVP.reject(new Error("Filename cannot be null."));
-    }
+    console.log("snapshot", snapshot.serialize());
+    const modelName = snapshot.modelName,
+          record = snapshot.serialize();
 
-    return this.get('fileUtil').writeFile(filename, snapshot.attr('body'));
+    return this.get('fileUtil').createRecord(modelName, record);
   }
 
   // todo: make a delete record that is safe-ish

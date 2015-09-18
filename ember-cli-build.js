@@ -5,7 +5,8 @@ module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     babel: {
       stage: 0,
-      optional: ["asyncToGenerator"]
+      optional: ["asyncToGenerator"],
+      sourceMaps: "inline"
     },
     fingerprint: {
       exclude: ['index.js', 'lib']

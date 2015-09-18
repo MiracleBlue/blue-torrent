@@ -1,7 +1,13 @@
-@import "ember-foundation";
+//@import "ember-foundation";
+@import 'materialize';
+@import 'ember-cli-materialize';
 
 html, body {
   height: auto;
+}
+
+.torrent-file-picker {
+  display: none;
 }
 
 /* Coolors Exported Palette - coolors.co/58a0ff-7d1935-f5f5ee-333333-cbedb8 */

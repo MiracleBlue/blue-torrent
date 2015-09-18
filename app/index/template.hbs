@@ -1,6 +1,10 @@
 <div class="torrents__list">
   {{#blue-table model as |torrent|}}
     {{#blue-table/row torrent}}
+      {{#blue-table/column}}
+        {{md-btn text="Add" action="addTorrent" actionArg=torrent}}
+        <button {{action "addTorrent" torrent}}>Add</button>
+      {{/blue-table/column}}
       {{#blue-table/column key="name" label="Name" as |data|}}
         {{data}}
       {{/blue-table/column}}
@@ -11,6 +15,12 @@
         {{data}}
       {{/blue-table/column}}
       {{#blue-table/column key="downloaded" label="Downloaded" as |data|}}
+        {{data}}
+      {{/blue-table/column}}
+      {{#blue-table/column key="eta" label="ETA" as |data|}}
+        {{data}}
+      {{/blue-table/column}}
+      {{#blue-table/column key="downloadSpeed" label="Download Speed" as |data|}}
         {{data}}
       {{/blue-table/column}}
     {{/blue-table/row}}

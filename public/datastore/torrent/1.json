@@ -1,10 +1,10 @@
 {
   "torrent": {
     "id": 1,
-    "name": "hello",
-    "torrentFilePath": "/some/path/to/stuff.torrent",
+    "name": "Ubuntu_14.04.3_server_amd64.torrent",
+    "torrentFilePath": "/Users/MiracleBlue/DevelopmentLocal/blue-torrent/public/test-torrents/ubuntu-15.04-server-amd64.iso.torrent",
     "downloadPath": "/some/download/location",
-    "isActive": true,
+    "isActive": false,
     "status": "DOWNLOADING",
     "isErrored": false,
     "error": "",

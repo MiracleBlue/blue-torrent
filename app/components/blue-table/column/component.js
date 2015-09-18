@@ -6,10 +6,15 @@ export default Ember.Component.extend({
   key: null,
   name: null,
 
-  data: Ember.computed("parentView.controller.row", {
-    get() {
-      const key = this.get("key");
-      return this.get(`parentView.controller.row.${key}`);
-    }
-  })
+  _setupDataComputed: Ember.on("init", function() {
+    const key = this.get("key");
+
+    this.set("data", Ember.computed(`parentView.controller.row.${key}`, {
+      get() {
+        return this.get(`parentView.controller.row.${key}`);
+      }
+    }))
+  }),
+
+  data: null
 });
