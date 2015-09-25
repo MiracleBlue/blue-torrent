@@ -26,7 +26,7 @@ export default DS.Adapter.extend({
           fileName = `${id}.json`,
           filePath = `../datastore/${typeKey}/${fileName}`;
 
-    var promise = this.get('fileUtil').readFile(filePath);
+    var promise = this.get('fileUtil').getRecord(typeKey, id);
 
     return promise.then(function(data) {
       return data[typeKey];

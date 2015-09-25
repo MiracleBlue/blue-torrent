@@ -40,6 +40,7 @@ export default DS.Model.extend({
       return this.get("webtorrent.client").get(torrentFile);
     }
   }),
+
   torrentFile: Ember.computed({
     get() {
       const fileUtil = this.get("nw.fileUtil"),
@@ -61,5 +62,13 @@ export default DS.Model.extend({
     torrentItem.swarm.on("download", metadata => {
       Ember.run.throttle(this, logDownloadSpeed, 300);
     });
-  })
+  }),
+
+  async start() {
+    const webtorrent = this.get("webtorrent");
+
+    webtorrent.addTorrent(await this.get("torrentFile"));
+
+    this.set("isActive", true);
+  }
 });

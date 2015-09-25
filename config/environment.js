@@ -2,6 +2,9 @@
 
 module.exports = function(environment) {
   var ENV = {
+    'ember-devtools': {
+      global: true
+    },
     modulePrefix: 'blue-torrent',
     environment: environment,
     baseURL: '/',

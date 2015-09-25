@@ -3,7 +3,6 @@ import Ember from 'ember';
 const {log, info, error, warn} = console;
 
 export default Ember.Component.extend({
-  positionalParams: ["row"],
   tagName: "",
 
   // dynamic properties
@@ -13,7 +12,7 @@ export default Ember.Component.extend({
   // Computed Properties
   columns: Ember.computed("childViews.[]", {
     get() {
-      return this.get("childViews.@each.attrs").toArray();
+      return this.get("childViews").mapBy("attrs");
     }
   }),
 
@@ -42,4 +41,6 @@ export default Ember.Component.extend({
       this.set("selected", false);
     }
   }
+}).reopenClass({
+  positionalParams: ["row"]
 });

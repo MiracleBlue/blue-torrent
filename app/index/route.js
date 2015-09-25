@@ -14,18 +14,9 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    async addTorrent() {
-      const webtorrent = this.get("webtorrent"),
-        record = await this.store.find("torrent", 1);
-
-      webtorrent.addTorrent(await record.get("torrentFile"));
-
-      record.set("isActive", true);
-
-      console.log("addTorrent complete I guess");
-    },
-    select(filePath) {
-
+    addTorrent(torrentRecord) {
+      const record = torrentRecord;
+      record.start();
     }
   }
 });

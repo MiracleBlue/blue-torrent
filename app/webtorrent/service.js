@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import WebTorrent from "./webtorrent";
+import ParseTorrent from './parse-torrent';
 
 const {computed, inject} = Ember,
   {alias} = computed;
@@ -8,11 +9,17 @@ export default Ember.Service.extend({
   nw: inject.service("nw"),
   settings: inject.service("settings"),
   downloadPath: alias("settings.record.downloadPath"),
+
+  parse(data) {
+    return ParseTorrent(data);
+  },
+
   client: computed({
     get() {
       return new WebTorrent();
     }
   }),
+
   torrents: alias("client.torrents"),
 
   addTorrent(file) {

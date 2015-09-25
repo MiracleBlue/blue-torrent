@@ -2,8 +2,7 @@
   {{#blue-table model as |torrent|}}
     {{#blue-table/row torrent}}
       {{#blue-table/column}}
-        {{md-btn text="Add" action="addTorrent" actionArg=torrent}}
-        <button {{action "addTorrent" torrent}}>Add</button>
+        {{md-btn text="Start" action="addTorrent" actionArg=torrent}}
       {{/blue-table/column}}
       {{#blue-table/column key="name" label="Name" as |data|}}
         {{data}}
